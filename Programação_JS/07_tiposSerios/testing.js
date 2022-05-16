@@ -12,6 +12,7 @@ function test9() {
 };
 
 let test10 = null;
+let test11 = Infinity;
 
 console.log(typeof test1);
 console.log(typeof test2);
@@ -23,3 +24,4 @@ console.log(typeof test7);
 console.log(typeof test8);
 console.log(typeof test9);
 console.log(typeof test10);
+console.log(typeof test11);
