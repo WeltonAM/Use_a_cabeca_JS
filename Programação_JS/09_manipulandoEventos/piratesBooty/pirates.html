@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pirates Booty</title>
+    <script>
+        window.onload = init;
+        function init() {
+            let map = document.getElementById("map");
+            map.onmousemove = showCoords;
+        }
+
+        function showCoords(eventObj){
+            let map = document.getElementById("coords");
+            let x = eventObj.clientX;
+            let y = eventObj.clientY;
+            map.innerHTML = "Map coodinates: " + x + ", " + y;
+        }
+    </script>
+</head>
+<body>
+    <img id="map" src="map.jpg" alt="">
+    <p id="coords">
+        "Move mouse to find coordinates..."
+    </p>
+</body>
+</html>

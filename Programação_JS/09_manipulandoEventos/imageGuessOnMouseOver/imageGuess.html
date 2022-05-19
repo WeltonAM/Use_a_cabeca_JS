@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image guess</title>
+    <style>
+        body {
+            margin: 20px;
+        }
+
+        img {
+            cursor: pointer;
+            margin: 20px auto;
+            display: flex;
+        }
+    </style>
+    <script>
+        window.onload = init;
+        function init(){
+            let images = document.getElementsByTagName("img");
+            for(let i = 0; i < images.length; i++){
+                images[i].onmouseover = showAnser;
+                images[i].onmouseout = reblur;
+            }
+        }
+
+        function showAnser(eventObj){
+            let image = eventObj.target;
+            let name = image.id;
+            name = name + ".jpg";
+            image.src = name;
+        }
+
+        function reblur(eventObj){
+            let image = eventObj.target;
+            let name = image.id;
+            name = name + "blur.jpg";
+            image.src = name;
+        }
+    </script>
+</head>
+<body>
+    <img id="zero" src="zeroblur.jpg" alt="">
+    <img id="one" src="oneblur.jpg" alt="">
+    <img id="two" src="twoblur.jpg" alt="">
+    <img id="three" src="threeblur.jpg" alt="">
+    <img id="four" src="fourblur.jpg" alt="">
+    <img id="five" src="fiveblur.jpg" alt="">
+</body>
+</html>
