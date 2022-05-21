@@ -1,5 +1,5 @@
-let winner = function() { console.log("WINNER!") };
-let loser = function() { console.log("LOSER!") };
+let winner = function() { console.log("WINNER!")};
+let loser = function() { console.log("LOSER!")};
 
 winner();
 let a = winner;
