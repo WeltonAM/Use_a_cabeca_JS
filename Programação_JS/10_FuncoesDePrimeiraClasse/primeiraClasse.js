@@ -85,13 +85,19 @@ function createDinnerOrderFunction(passenger){
     return orderFunction;
 }
 
+function pickUpTrash() {
+    console.log("Can I have your trash, please?")
+}
+
 
 function serveCustomer(passenger) {
     let getDrinkOrderFunction = createDrinkOrder(passenger);
     let getDinnerOrderFunction = createDinnerOrderFunction(passenger)
     getDrinkOrderFunction();
 
-    getDinnerOrderFunction()
+    getDinnerOrderFunction();
+
+    pickUpTrash();
 }
 
 function servePassengers(passengers){
