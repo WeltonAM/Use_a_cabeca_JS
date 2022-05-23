@@ -1,8 +1,8 @@
 let passengers = [
-    { name: "Jane Doloop", paid: true },
-    { name: "Dr. Evel", paid: true },
-    { name: "Sue Property", paid: false },
-    { name: "John Funcall", paid: true },
+    { name: "Jane Doloop", paid: true, ticket: "coach" },
+    { name: "Dr. Evel", paid: true, ticket: "firstclass" },
+    { name: "Sue Property", paid: false, ticket: "firstclass" },
+    { name: "John Funcall", paid: true, ticket: "premium" },
 ]
 
 function processPassengers(passengers, testFunction) {
@@ -43,4 +43,61 @@ function printPassenger(passenger) {
     console.log(message);
     return false;
 }
+console.log("-----------IfPaid--------------")
 processPassengers(passengers, printPassenger);
+
+function createDrinkOrder(passenger) {
+    let orderFunction;
+
+    if(passenger.ticket === "firstclass") {
+        orderFunction = function() {
+            console.log(`${passenger.name}, would you like a cocktail or wine?`);
+        };
+    
+    } else if(passenger.ticket === "coach") {
+        orderFunction = function(){
+            console.log(`${passenger.name}, your choice is cola or water.`);
+        };
+    } else {
+        orderFunction = function(){
+            console.log(`${passenger.name}, would you like wine, cola or water?.`);
+        }
+    }
+    return orderFunction;
+}
+
+function createDinnerOrderFunction(passenger){
+    let orderFunction;
+
+    if(passenger.ticket === "firstclass"){
+        orderFunction = function() {
+            console.log(`${passenger.name}, would you like chiken or pasta?`);
+        };
+    } else if (passenger.ticket === "premium") {
+        orderFunction = function() {
+            console.log(`${passenger.name}, would you like snack box or cheese plate?`)
+        }
+    } else {
+        orderFunction = function() {
+            console.log(`${passenger.name}, would you like peanuts or pretzels?`)
+        }
+    }
+    return orderFunction;
+}
+
+
+function serveCustomer(passenger) {
+    let getDrinkOrderFunction = createDrinkOrder(passenger);
+    let getDinnerOrderFunction = createDinnerOrderFunction(passenger)
+    getDrinkOrderFunction();
+
+    getDinnerOrderFunction()
+}
+
+function servePassengers(passengers){
+    for(let i = 0; i < passengers.length; i++){
+        serveCustomer(passengers[i]);
+    }
+}
+console.log("--------Drink and Food----------")
+servePassengers(passengers);
