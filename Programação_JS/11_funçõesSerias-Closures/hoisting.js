@@ -1,7 +1,7 @@
 let migrating = true;
 if(migrating) {
     quack(4);
-    fly(4); // TypeErro: undefined is no a function
+    fly(4); // TypeErro: undefined is not a function
 }
 
 let fly = function(num) {
