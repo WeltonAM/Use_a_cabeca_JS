@@ -22,8 +22,15 @@ Dog.prototype.wag = function() {
     console.log("Wag!");
 };
 
+Dog.prototype.sitting = false;
+
 Dog.prototype.sit = function() {
-    console.log(`${this.name} is now sitting.`)
+    if(this.sitting) {
+        console.log(`${this.name} is already sitting.`)
+    } else {
+        this.sitting = true;
+        console.log(`${this.name} is now sitting.`)
+    }
 }
 
 let fido = new Dog("Fido", "Mixed", 38);
@@ -50,9 +57,15 @@ console.log("--------");
 spot.bark();
 spot.run();
 spot.wag();
+spot.sit();
+spot.sit();
 
 console.log("--------");
 barnaby.bark();
 barnaby.run();
 barnaby.wag();
 barnaby.sit();
+barnaby.sit();
+
+console.log("--------");
+console.log(spot.hasOwnProperty("species"));
