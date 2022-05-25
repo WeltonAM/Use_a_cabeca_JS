@@ -34,9 +34,7 @@ Dog.prototype.sit = function() {
 }
 
 function ShowDog(name, breed, weight, handler) {
-    this.name = name;
-    this.breed = breed;
-    this.weight = weight;
+    Dog.call(this, name, breed, weight)
     this.handler = handler;
 }
 
@@ -50,7 +48,7 @@ ShowDog.prototype.stack = function() {
 ShowDog.prototype.bait = function() {
     console.log("Bait");
 };
-ShowDog.prototype.gait = function() {
+ShowDog.prototype.gait = function(kind) {
     console.log(kind + "ing");
 };
 ShowDog.prototype.groom = function() {
@@ -83,6 +81,15 @@ if(scotty instanceof ShowDog) {
     console.log("Scotty is a SHOWDOG.");
 }
 
+let fluffy = new Dog("Fluffy", "Poodle", 30);
+let spot = new Dog("Spot", "Chihuahua", 10);
+let beatrice = new ShowDog("Beatrice", "Pomeranian", 5, "Hamilton");
+
 console.log("-------------");
-console.log(`Fido constructor is ${fido.constructor}`)
-console.log(`Scotty constructor is ${scotty.constructor}`)
+fido.bark();
+fluffy.bark();
+spot.bark();
+scotty.bark();
+beatrice.bark();
+scotty.gait("Walk");
+beatrice.groom();
